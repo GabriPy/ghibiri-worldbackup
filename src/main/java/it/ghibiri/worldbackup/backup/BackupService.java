@@ -37,7 +37,7 @@ public class BackupService {
     public synchronized void runBackup() {
         if (running) {
             plugin.getLogger().warning("Backup già in corso, salto.");
-            broadcastToAdmins(lang.msg("backup.alreadyRunning"));
+            broadcastToAdmins(lang.msg("backup.alreadyRunning")); // backup.alreadyRunning
             return;
         }
 
@@ -89,7 +89,7 @@ public class BackupService {
                     "sec", String.valueOf(ms / 1000)
             );
 
-            broadcastToAdmins(lang.msg("backup.done", placeholders));
+            broadcastToAdmins(lang.msg("backup.done", placeholders)); // backup.done
 
             cleanupOldBackups(backupDir);
 
@@ -98,13 +98,13 @@ public class BackupService {
                 uploader.uploadBackup(zipFile);
             } else {
                 // opzionale: messaggio che manca creds / disattivato
-                broadcastToAdmins(lang.msg("backup.missingGithubCreds"));
+                broadcastToAdmins(lang.msg("backup.missingGithubCreds")); // backup.missingGithubCreds
             }
 
         } catch (Exception e) {
             plugin.getLogger().severe("Errore durante il backup!");
             e.printStackTrace();
-            broadcastToAdmins(lang.msg("backup.failed"));
+            broadcastToAdmins(lang.msg("backup.failed")); // backup.failed
         } finally {
             running = false;
         }

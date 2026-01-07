@@ -29,7 +29,7 @@ public class BackupNowCommand implements CommandExecutor {
 
         // Se backup in corso, stop immediato
         if (backupService.isRunning()) {
-            sender.sendMessage(lang.msg("backup.alreadyRunning"));
+            sender.sendMessage(lang.msg("backup.alreadyRunning")); // backup.alreadyRunning
             return true;
         }
 
@@ -44,7 +44,7 @@ public class BackupNowCommand implements CommandExecutor {
         // Se vuoi forzare, controlliamo permesso
         if (force) {
             if (!sender.hasPermission("worldbackup.force")) {
-                sender.sendMessage(lang.msg("cooldown.noForcePerm")); // ✅ chiave giusta dal tuo yml
+                sender.sendMessage(lang.msg("backup.noPerm")); // backup.noPerm
                 return true;
             }
         } else {
@@ -57,14 +57,14 @@ public class BackupNowCommand implements CommandExecutor {
                 ph.put("min", String.valueOf(min));
                 ph.put("sec", String.valueOf(s));
 
-                sender.sendMessage(lang.msg("backup.cooldownBackup", ph)); // ✅ con placeholder
-                sender.sendMessage(lang.msg("backup.wannaForce"));
+                sender.sendMessage(lang.msg("backup.cooldownBackup", ph)); //  backup.cooldownBackup
+                sender.sendMessage(lang.msg("backup.wannaForce")); // backup.wannaForce
                 return true;
             }
         }
 
         // Avvio
-        sender.sendMessage(lang.msg("backup.started"));
+        sender.sendMessage(lang.msg("backup.started")); // backup.started
         backupService.runBackup();
         return true;
     }

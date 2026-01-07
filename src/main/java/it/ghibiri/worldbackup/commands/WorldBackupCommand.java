@@ -23,7 +23,7 @@ public class WorldBackupCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(lang.msg("worldbackup.reloadUsage"));
+            sender.sendMessage(lang.msg("worldbackup.reloadUsage")); // worldbackup.reloadUsage
             return true;
         }
 
@@ -33,11 +33,11 @@ public class WorldBackupCommand implements CommandExecutor {
             plugin.reloadConfig();
             lang.reload();
             scheduler.startOrUpdateFromConfig();
-            sender.sendMessage(lang.msg("worldbackup.reloaded"));
+            sender.sendMessage(lang.msg("worldbackup.reloaded")); // worldbackup.reloaded
             return true;
         }
 
-        sender.sendMessage(lang.msg("worldbackup.reloadUsage "));
+        sender.sendMessage(lang.msg("worldbackup.reloadUsage ")); // worldbackup.reloadUsage
         return true;
     }
 }

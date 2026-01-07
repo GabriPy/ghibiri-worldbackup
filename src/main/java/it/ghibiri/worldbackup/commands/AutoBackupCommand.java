@@ -24,7 +24,7 @@ public class AutoBackupCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length == 0) {
-            sender.sendMessage(lang.msg("autobackup.everyUsage"));
+            sender.sendMessage(lang.msg("autobackup.everyUsage")); // autobackup.everyUsage
             return true;
         }
 
@@ -35,44 +35,44 @@ public class AutoBackupCommand implements CommandExecutor {
                 boolean autoEnabled = plugin.getConfig().getBoolean("autoEnabled", true);
                 String mode = plugin.getConfig().getString("mode", "daily");
                 int every = plugin.getConfig().getInt("everyMinutes", 60);
-                sender.sendMessage(lang.msg("autobackup.now") + autoEnabled + " " + lang.msg("mode") + " " + mode);
+                sender.sendMessage(lang.msg("autobackup.now") + autoEnabled + " " + lang.msg("mode") + " " + mode); // autobackup.now // mode
                 return true;
             }
             case "on" -> {
                 plugin.getConfig().set("autoEnabled", true);
                 plugin.saveConfig();
                 scheduler.startOrUpdateFromConfig();
-                sender.sendMessage(lang.msg("autobackup.on"));
+                sender.sendMessage(lang.msg("autobackup.on")); // autobackup.on
                 return true;
             }
             case "off" -> {
                 plugin.getConfig().set("autoEnabled", false);
                 plugin.saveConfig();
                 scheduler.stop();
-                sender.sendMessage(lang.msg("autobackup.off"));
+                sender.sendMessage(lang.msg("autobackup.off")); // autobackup.off
                 return true;
             }
             case "daily", "hourly" -> {
                 plugin.getConfig().set("mode", sub);
                 plugin.saveConfig();
                 scheduler.startOrUpdateFromConfig();
-                sender.sendMessage(lang.msg("autobackup.set") + sub);
+                sender.sendMessage(lang.msg("autobackup.set") + sub); // autobackup.set
                 return true;
             }
             case "every" -> {
                 if (args.length < 2) {
-                    sender.sendMessage(lang.msg("autobackup.everyUsage"));
+                    sender.sendMessage(lang.msg("autobackup.everyUsage")); // autobackup.everyUsage
                     return true;
                 }
                 int minutes;
                 try {
                     minutes = Integer.parseInt(args[1]);
                 } catch (NumberFormatException e) {
-                    sender.sendMessage("autobackup.minutesErr");
+                    sender.sendMessage(lang.msg("autobackup.minutesErr")); // autobackup.minutesErr
                     return true;
                 }
                 if (minutes < 1) {
-                    sender.sendMessage(lang.msg("autobackup.minutesMust"));
+                    sender.sendMessage(lang.msg("autobackup.minutesMust")); // autobackup.minutesMust
                     return true;
                 }
 
@@ -80,11 +80,11 @@ public class AutoBackupCommand implements CommandExecutor {
                 plugin.getConfig().set("everyMinutes", minutes);
                 plugin.saveConfig();
                 scheduler.startOrUpdateFromConfig();
-                sender.sendMessage(lang.msg("autobackup.everySetted") + minutes + " min");
+                sender.sendMessage(lang.msg("autobackup.everySetted") + minutes + " min"); // autobackup.everySetted
                 return true;
             }
             default -> {
-                sender.sendMessage(lang.msg("everyUsage"));
+                sender.sendMessage(lang.msg("autobackup.everyUsage")); // autobackup.everyUsage
                 return true;
             }
         }
