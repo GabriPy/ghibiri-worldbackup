@@ -1,0 +1,28 @@
+# !!! Use "false" only to disable the plugin!!!
+enabled: true
+
+# Language
+lang: it_IT
+
+# Upload to GitHub Releases
+uploadToGithub: true
+
+# Repository GitHub (format: owner/repo)
+githubRepo: "TUOUSERNAME/TUAREPO"
+
+# GitHub Personal Access Token
+githubToken: "ghp_xxxxxxxxxxxxxxxxxxxxx"
+
+# Autobackup
+autoEnabled: false
+mode: daily        # daily | hourly | every
+everyMinutes: 60       # only if autoMode = every
+
+# Cooldown backup (manual) (minutes)
+cooldownMinutes: 10
+
+# Max Local backups
+keepLastLocal: 10
+
+# Max GitHub backups
+keepLastGithub: 10

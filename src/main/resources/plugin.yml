@@ -1,0 +1,31 @@
+name: GhibiriWorldBackup
+version: 1.0.0
+main: it.ghibiri.worldbackup.WorldBackupPlugin
+api-version: "1.21"
+author: Ghibiri
+
+commands:
+  backupnow:
+    description: Esegue un backup immediato
+    usage: /backupnow [force]
+    permission: worldbackup.backupnow
+
+  autobackup:
+    description: Gestisce autobackup (daily/hourly/every/now/on/off)
+    usage: /autobackup <daily|hourly|every|now|on|off> [minuti]
+    permission: worldbackup.autobackup
+
+  worldbackup:
+    description: Comandi admin per WorldBackup
+    usage: /worldbackup reload
+    permission: worldbackup.admin
+
+permissions:
+  worldbackup.backupnow:
+    default: op
+  worldbackup.autobackup:
+    default: op
+  worldbackup.force:
+    default: op
+  worldbackup.admin:
+    default: op

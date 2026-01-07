@@ -1,0 +1,29 @@
+prefix: "&7[&aWorldBackup&7]&r "
+
+backup:
+  started: "{prefix}&eBackup avviato..."
+  forcestarted: "{prefix}&eBackup forzato avviato..."
+  done: "{prefix}&aBackup finito: &f{file} &7({mb} MB, {sec}s)"
+  completed: "{prefix}&aBackup completato: "
+  failed: "{prefix}&cBackup fallito, controlla la console."
+  alreadyRunning: "{prefix}&cBackup già in corso, aspetta che finisca."
+  noPerm: "{prefix}&cNon hai i permessi per usare /backupnow force"
+  cooldownBackup: "{prefix}&cCooldown ancora attivo, aspetta ancora: {min}m {sec}s"
+  wannaForce: "{prefix}&cSe vuoi forzare il backup, usa /backupnow force"
+  missingGithubCreds: "{prefix}&eGitHub upload disattivato o credenziali mancanti."
+
+autobackup:
+  now: "{prefix}&eAutobackup impostato su "
+  on: "{prefix}&eAutobackup attivo."
+  off: "{prefix}&cAutobackup disattivato"
+  set: "{prefix}&eModalità impostata: "
+  everyUsage: "{prefix}&cUso: /autobackup every <minuti> oppure /autobackup <daily|hourly|every|now|on|off> [minuti]"
+  minutesErr: "{prefix}&cMinuti non validi."
+  minutesMust: "{prefix}&cMinuti devono essere >= 1"
+  everySetted: "{prefix}aModalità impostata: every"
+
+worldbackup:
+  reloaded: "{prefix}&eConfig ricaricata e scheduler aggiornato."
+  reloadUsage: "{prefix}&cUso: /worldbackup reload"
+
+mode: "modalità"
